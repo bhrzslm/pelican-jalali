@@ -877,7 +877,7 @@ class datetime(date):
             d = kw['date']
             (y, m, d) = GregorianToJalali(d.year, d.month, d.day).getJalaliList()
             return datetime(y, m, d, force_persian_output=force_persian_output)
-        if 'datetime' in kw  and type(kw['datetime']) == py_datetime.datetime:
+        if 'datetime' in kw:  #and type(kw['datetime']) == py_datetime.datetime:
             dt = kw['datetime']
             (y, m, d) = GregorianToJalali(dt.year, dt.month, dt.day).getJalaliList()
             return datetime(y, m, d, dt.hour, dt.minute, dt.second, dt.microsecond, dt.tzinfo, force_persian_output=force_persian_output)
@@ -901,7 +901,7 @@ class datetime(date):
                                 tzinfo = kw['tzinfo']
             return datetime(y, m, d, hour, minute, second, microsecond, tzinfo, force_persian_output=force_persian_output)
 
-        raise ValueError("fromgregorian have to called fromgregorian(day=X,month=X,year=X, [hour=X, [minute=X, [second=X, [tzinfo=X]]]]) or fromgregorian(date=datetime.date) or fromgregorian(datetime=datetime.datetime)")
+        raise ValueError("fromgregorian has to be called as fromgregorian(day=X,month=X,year=X, [hour=X, [minute=X, [second=X, [tzinfo=X]]]]) or fromgregorian(date=datetime.date) or fromgregorian(datetime=datetime.datetime)")
 
     def togregorian(self):
         """Convert current jalali date to gregorian and return datetime.datetime"""
